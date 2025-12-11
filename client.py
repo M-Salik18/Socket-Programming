@@ -18,7 +18,7 @@ SMALL_FONT = ("Helvetica", 13)
 
 # Creating a socket object
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.settimeout(1.0)  # timeout to avoid freezing after idle time
+#client.settimeout(1.0)  # timeout to avoid freezing after idle time
 
 
 def add_message(message):
@@ -109,16 +109,10 @@ message_box.pack(side=tk.TOP)
 
 def listen_for_messages_from_server(client):
     while True:
-        try:
             message = client.recv(2048).decode('utf-8')
             if message != '':
                 username, content = message.split("~", 1)
                 add_message(f"[{username}] {content}")
-        except socket.timeout:
-            continue
-        except:
-            break
-
 def main():
     root.mainloop()
 
