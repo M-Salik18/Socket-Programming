@@ -27,8 +27,8 @@ def send_message_to_client(client, message):
 
     client.sendall(message.encode())
 
-# Function to send any new message to all the clients that
-# are currently connected to this server
+# Function to send any new message to all the clients that are currently connected to 
+# this server
 def send_messages_to_all(message):
     
     for user in active_clients:
@@ -38,8 +38,7 @@ def send_messages_to_all(message):
 # Function to handle client
 def client_handler(client):
     
-    # Server will listen for client message that will
-    # Contain the username
+    # Server will listen for client message that will Contain the username
     while 1:
 
         username = client.recv(2048).decode('utf-8')
@@ -57,11 +56,8 @@ def client_handler(client):
 def main():
 
     # Creating the socket class object
-    # AF_INET: we are going to use IPv4 addresses
-    # SOCK_STREAM: we are using TCP packets for communication
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    # Creating a try catch block
+    
     try:
         # Provide the server with an address in the form of
         # host IP and port

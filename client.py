@@ -18,8 +18,6 @@ SMALL_FONT = ("Helvetica", 13)
 
 # Creating a socket object
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#client.settimeout(1.0)  # timeout to avoid freezing after idle time
-
 
 def add_message(message):
     message_box.config(state=tk.NORMAL)
